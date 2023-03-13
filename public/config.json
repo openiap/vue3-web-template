@@ -1,0 +1,7 @@
+{
+    "VUE_APP_CONFIG_URL": "https://pc.openiap.io/config",
+    "VUE_APP_AUTHORITY": "https://pc.openiap.io/oidc",
+    "VUE_APP_CLIENT_ID": "webapp",
+    "VUE_APP_RESPONSE_TYPE": "code",
+    "VUE_APP_PROMPT": "login"
+}
