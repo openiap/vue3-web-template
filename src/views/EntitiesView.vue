@@ -36,6 +36,7 @@
         <button class="hidden" v-shortkey.propagte="['arrowleft']" @shortkey="PreviusPage">Previus</button>
         <button class="hidden" v-shortkey.propagte="['arrowup']" @shortkey="PreviusCollection">Next</button>
         <button class="hidden" v-shortkey.propagte="['arrowdown']" @shortkey="NextCollection">Previus</button>
+        <button class="hidden" @click="SelectAll" v-shortkey.propagte="['ctrl', 'a']" @shortkey="SelectAll">SelectAll</button>
       </div>
     </div>
   </div>
@@ -319,6 +320,9 @@ export default {
         this.serverOptions.page = 1;
         this.collectionname = this.collections[index + 1];
       }
+    },
+    SelectAll() {
+      this.itemsSelected = this.items;
     },
     FocusSearch() {
       this.$refs.searchfield.focus();
