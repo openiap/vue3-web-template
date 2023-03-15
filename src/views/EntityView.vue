@@ -1,7 +1,8 @@
 <template>
   <div class="row">
     <div class="col">
-      <button type="button" class="button primary col-3" v-on:click="Save">Save
+      <button type="button" class="button primary col-3" v-on:click="Save"
+      v-shortkey.propagte="['alt', 's']" @shortkey="Save">Save
       </button>
       <button @click="Insert" class="button hidden" v-shortkey.propagte="['insert']" @shortkey="Insert">Insert
         key</button>
@@ -72,7 +73,8 @@
     <textarea v-if="mode=='json'" ref="myTextarea" v-model="json" rows="20" :min-height="30" :max-height="350" />
         <div class="row">
           <div class="col">
-        <button type="button" class="button primary col-3" v-on:click="Save">Save
+        <button type="button" class="button primary col-3" v-on:click="Save"
+        v-shortkey.propagte="['ctrl', 's']" @shortkey="Save">Save
         </button>
         <button @click="Insert" class="button hidden" v-shortkey.propagte="['insert']" @shortkey="Insert">Insert
           key</button>
@@ -172,7 +174,12 @@ export default {
         }
       }
     },
-    async Save() {
+    async Save(e) {
+      if(e != null) {
+        if(e.preventDefault) e.preventDefault();
+        if(e.stopPropagation) e.stopPropagation();
+        e.returnValue = 'Really want to quit the game?';
+      }
       var item = { ...this.item };
       if (this.mode == "json") var item = JSON.parse(this.json);
       try {
@@ -181,10 +188,18 @@ export default {
         } else {
           await this.Client.InsertOne({ collectionname: this.collectionname, item });
         }
-        this.$router.push({ name: 'EntitiesCollection', params: { propcollectionname: this.collectionname } });
+        if(e != null) {
+          setTimeout(() => { 
+            this.$router.push({ name: 'EntitiesCollection', params: { propcollectionname: this.collectionname } });
+          }, 200)
+        } else {
+          this.$router.push({ name: 'EntitiesCollection', params: { propcollectionname: this.collectionname } });
+        }        
+
       } catch (error) {
         this.errormessage = error
       }
+      return false;
     }
   }
 }

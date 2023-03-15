@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . /app/
 
-RUN npm run build --prod
+RUN npm run build --omit=dev
 
 FROM nginx:stable-alpine
 
