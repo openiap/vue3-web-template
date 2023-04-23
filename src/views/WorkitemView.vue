@@ -41,10 +41,10 @@
               @accepted="AcceptEditname" :emitevents="emitevents" Editing=true>
             </editableTextField>
             <div v-if="editingname != i && i != '_type' && i != 'name'" class="col"><img src="./images/delete.png"
-                class="operation-icon" @click="delete item[i]" /><span @click="EditName(i)">{{i}}</span></div>
+                class="operation-icon" @click="delete item.payload[i]" /><span @click="EditName(i)">{{i}}</span></div>
             <div v-if="editingname != i && (i == '_type' || i == 'name')" class="col">{{i}}</div>
             <div class="col">
-              <editableTextField v-model="item[i]"></editableTextField>
+              <editableTextField v-model="item.payload[i]"></editableTextField>
             </div>
 
           </div>
