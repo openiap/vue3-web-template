@@ -119,16 +119,20 @@ export default {
 
       for (let i = 0; i < components.length; i++) {
         const item = components[i];
-        if (item.type == "table") {
+        if (item.type == "table") { // old
           for (let x = 0; x < item.rows.length; x++) {
             for (let y = 0; y < item.rows[x].length; y++) {
               const subcomponents = item.rows[x][y].components;
               var result = this.traversecomponentsPostProcess(subcomponents, data);
               if (result != null) return result;
             }
-
           }
+        } else if (item.type == "components") { // new
+          const subcomponents = item.components;
+          var result = this.traversecomponentsPostProcess(subcomponents, data);
+          if (result != null) return result;
         }
+
       }
     },
     loadForm() {
