@@ -330,7 +330,7 @@ export default {
               finalexactor.push(newexactq);
             }
             var hastextindex = false;
-            if (this.Config.collections_with_text_index.indexOf(this.collection) > -1) {
+            if (this.Config.collections_with_text_index.indexOf(this.collectionname) > -1) {
               hastextindex = true;
             }
             if (!this.searchValue.startsWith(".") && hastextindex) {
