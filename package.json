@@ -25,8 +25,6 @@
     "@fortawesome/vue-fontawesome": "^3.0.1",
     "@openiap/jsapi": "github:openiap/jsapi",
     "@skadefro/vue-shortkey": "^3.1.8",
-    "@vue-flow/additional-components": "^1.1.0",
-    "@vue-flow/core": "^1.1.4",
     "chota": "^0.8.0",
     "core-js": "^3.8.3",
     "express": "^4.19.2",

@@ -43,19 +43,6 @@ export async function configureRouter(idsrvAuth) {
       component: () => import(/* webpackChunkName: "about" */ '../views/EntityView.vue')
     },
     {
-      path: '/Nodered',
-      name: 'Nodered',
-      meta: { authName: idsrvAuth.authName },
-      component: () => import(/* webpackChunkName: "about" */ '../views/NoderedView.vue')
-    },
-    {
-      path: '/Nodered/:propuserid',
-      name: 'Noderedwithuserid',
-      props: true,
-      meta: { authName: idsrvAuth.authName },
-      component: () => import(/* webpackChunkName: "about" */ '../views/NoderedView.vue')
-    },
-    {
       path: '/Workitems',
       name: 'WorkItemsView',
       meta: { authName: idsrvAuth.authName },
@@ -81,19 +68,6 @@ export async function configureRouter(idsrvAuth) {
       props: true,
       meta: { authName: idsrvAuth.authName },
       component: () => import(/* webpackChunkName: "about" */ '../views/WorkitemView.vue')
-    },
-    {
-      path: '/FlowTest',
-      name: 'FlowTest',
-      meta: { authName: idsrvAuth.authName },
-      component: () => import(/* webpackChunkName: "about" */ '../views/FlowTest.vue')
-    },
-    {
-      path: '/FlowTest/:id',
-      name: 'FlowTestWithId',
-      props: true,
-      meta: { authName: idsrvAuth.authName },
-      component: () => import(/* webpackChunkName: "about" */ '../views/FlowTest.vue')
     },
     {
       path: '/Form/:workflow/:id',
